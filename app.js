@@ -83,4 +83,53 @@ filterAuthorBtn.onclick = function() {
 }
 render();
 
+let books = [];
+let nextId = 1;
+
+
+function addBook(books, cim, szerzo, kiadasEve) {
+   
+    return [...books, {
+        azonosito: nextId++,
+        cim: cim,
+        szerzo: szerzo,
+        kiadasEve: parseInt(kiadasEve),
+        kolcsonozve: false
+    }];
+}
+
+
+const addBookForm = document.getElementById('addBookForm');
+const titleInput = document.getElementById('title');
+const authorInput = document.getElementById('author');
+const yearInput = document.getElementById('year');
+addBookForm.onsubmit = function(e) {
+    e.preventDefault();
+    books = addBook(books, titleInput.value, authorInput.value, yearInput.value);
+    addBookForm.reset();
+    render();
+}
+  
+function borrowBook(books, id) {
+    
+    return books.map(function(book) {
+        if (book.azonosito === id) {
+            return { ...book, kolcsonozve: true };
+        }
+        return book;
+    });
+}
+function returnBook(books, id) {
+    return books.map(function(book) {
+        if (book.azonosito === id) {
+            return { ...book, kolcsonozve: false };
+        }
+        return book;
+    });
+}
+function deleteBook(books, id) {
+    return books.filter(function(book) {
+        return book.azonosito !== id;
+    });
+}
 

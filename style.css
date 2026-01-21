@@ -8,3 +8,32 @@ h2 {
     color: #333;
     margin-top: 24px;
 }
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    background: #f8f9fa;
+    margin-bottom: 6px;
+    padding: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li .actions button {
+    margin-left: 6px;
+    background: #ffc107;
+    color: #333;
+}
+li .actions button.delete {
+    background: #dc3545;
+    color: #fff;
+}
+li .actions button.return {
+    background: #28a745;
+    color: #fff;
+}
+li .actions button:hover {
+    opacity: 0.85;
+}

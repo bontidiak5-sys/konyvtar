@@ -1,3 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #e9ecef;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 48px;
+}
+form, .filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+input, button {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background: #0056b3;
+}
 .stats { 
     display: flex;
     justify-content: space-between;
@@ -36,41 +70,4 @@ li .actions button.return {
 }
 li .actions button:hover {
     opacity: 0.85;
-}
-body {
-
-    font-family: Arial, sans-serif;
-    background: #e9ecef;
-    margin: 0;
-    padding: 0;
-}
-.container {
-    
-    max-width: 1000px;
-    margin: 30px auto;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    padding: 48px;
-}
-form, .filters {
-    
-    display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-input, button {
-    padding: 6px 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-}
-button {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-button:hover {
-    background: #0056b3;
 }

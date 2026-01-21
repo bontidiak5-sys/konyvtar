@@ -20,6 +20,20 @@
 
 
     <script src="app.js"></script>
+    <h1>Könyv nyilvántartó rendszer</h1>
+        <!-- 1-es fejlesztő, 2. rész: Könyv hozzáadás form -->
+        <form id="addBookForm">
+            <input type="text" id="title" placeholder="Cím" required>
+            <input type="text" id="author" placeholder="Szerző" required>
+            <input type="number" id="year" placeholder="Kiadás éve" required>
+            <button type="submit">Könyv hozzáadása</button>
+        </form>
+        <!-- 1-es fejlesztő, 3. rész: Szűrés szerző szerint -->
+        <div class="filters">
+            <input type="text" id="filterAuthor" placeholder="Szerző szerinti szűrés">
+            <button id="filterAuthorBtn">Szűrés</button>
+            <button id="clearFilterBtn">Szűrés törlése</button>
+        </div>
 
 
 </body>

@@ -52,4 +52,35 @@ function render() {
     totalBooksSpan.textContent = 'Összes könyv: ' + totalBooks(books);
     borrowedBooksSpan.textContent = 'Kölcsönzött könyvek: ' + borrowedBooksCount(books);
 }
+window.borrow = function(id) {
+    books = borrowBook(books, id);
+    render();
+}
+window.giveBack = function(id) {
+    books = returnBook(books, id);
+    render();
+}
+window.remove = function(id) {
+    books = deleteBook(books, id);
+    render();
+}
+filterAuthorBtn.onclick = function() {
+    var author = filterAuthorInput.value;
+    if (author.trim() === '') {
+        render();
+        return;
+    }
+    availableBooksList.innerHTML = '';
+    filterByAuthor(availableBooks(books), author).forEach(function(book) {
+        var li = document.createElement('li');
+        li.innerHTML = '<strong>' + book.cim + '</strong> (' + book.szerzo + ', ' + book.kiadasEve + ')' +
+            '<span class="actions">' +
+            '<button onclick="borrow(' + book.azonosito + ')">Kölcsönzés</button>' +
+            '<button class="delete" onclick="remove(' + book.azonosito + ')">Törlés</button>' +
+            '</span>';
+        availableBooksList.appendChild(li);
+    });
+}
+render();
+
 

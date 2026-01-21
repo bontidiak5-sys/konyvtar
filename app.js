@@ -27,6 +27,7 @@ const totalBooksSpan = document.getElementById('totalBooks');
 const borrowedBooksSpan = document.getElementById('borrowedBooks');
 const filterAuthorInput = document.getElementById('filterAuthor');
 const filterAuthorBtn = document.getElementById('filterAuthorBtn');
+const clearFilterBtn = document.getElementById('clearFilterBtn');
 
 function render() {
     availableBooksList.innerHTML = '';
@@ -81,7 +82,10 @@ filterAuthorBtn.onclick = function() {
         availableBooksList.appendChild(li);
     });
 }
-render();
+clearFilterBtn.onclick = function() {
+    filterAuthorInput.value = '';
+    render();
+}
 
 let books = [];
 let nextId = 1;
@@ -103,12 +107,21 @@ const addBookForm = document.getElementById('addBookForm');
 const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
 const yearInput = document.getElementById('year');
-addBookForm.onsubmit = function(e) {
+
+window.addEventListener('DOMContentLoaded', function() {
+    render();
+});
+addBookForm.addEventListener('submit', function(e) {
     e.preventDefault();
+    
+    if (!titleInput.value.trim() || !authorInput.value.trim() || !yearInput.value.trim()) {
+        alert('Minden mezőt ki kell tölteni!');
+        return;
+    }
     books = addBook(books, titleInput.value, authorInput.value, yearInput.value);
     addBookForm.reset();
     render();
-}
+});
   
 function borrowBook(books, id) {
     

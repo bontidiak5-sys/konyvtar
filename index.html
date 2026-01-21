@@ -7,7 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <div class="container">
+    <div class="container">
+        <h1>Könyv nyilvántartó rendszer</h1>
+        <form id="addBookForm">
+            <input type="text" id="title" placeholder="Cím" required>
+            <input type="text" id="author" placeholder="Szerző" required>
+            <input type="number" id="year" placeholder="Kiadás éve" required>
+            <button type="submit">Könyv hozzáadása</button>
+        </form>
+        <div class="filters">
+            <input type="text" id="filterAuthor" placeholder="Szerző szerinti szűrés">
+            <button id="filterAuthorBtn">Szűrés</button>
+            <button id="clearFilterBtn">Szűrés törlése</button>
         </div>
         <div class="stats">
             <span id="totalBooks">Összes könyv: 0</span>
@@ -17,24 +28,7 @@
         <ul id="availableBooks"></ul>
         <h2>Kölcsönzött könyvek</h2>
         <ul id="borrowedBooksList"></ul>
-
-
+    </div>
     <script src="app.js"></script>
-    <h1>Könyv nyilvántartó rendszer</h1>
-        
-        <form id="addBookForm">
-            <input type="text" id="title" placeholder="Cím" required>
-            <input type="text" id="author" placeholder="Szerző" required>
-            <input type="number" id="year" placeholder="Kiadás éve" required>
-            <button type="submit">Könyv hozzáadása</button>
-        </form>
-        
-        <div class="filters">
-            <input type="text" id="filterAuthor" placeholder="Szerző szerinti szűrés">
-            <button id="filterAuthorBtn">Szűrés</button>
-            <button id="clearFilterBtn">Szűrés törlése</button>
-        </div>
-
-
 </body>
 </html>
